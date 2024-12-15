@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图形的旋转</title>
+    <!-- 引入SF Pro字体 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css">
+    <!-- 引入自定义样式 -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- 预加载音效文件 -->
+    <link rel="preload" href="./sounds/click.mp3" as="audio">
+    <link rel="preload" href="./sounds/reset.mp3" as="audio">
+    <link rel="preload" href="./sounds/switch.mp3" as="audio">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>图形的旋转</h1>
+            <div class="divider"></div>
+        </header>
+        
+        <main>
+            <div class="control-panel">
+                <div class="form-group">
+                    <label for="shape-select">选择图形：</label>
+                    <select id="shape-select">
+                        <option value="line">直线</option>
+                        <option value="triangle">三角形</option>
+                        <option value="trapezoid">平行四边形</option>
+                    </select>
+                </div>
+
+                <div class="rotation-controls">
+                    <div class="form-group">
+                        <label for="clockwise">顺时针旋转角度：</label>
+                        <input type="number" id="clockwise" min="0" max="360" value="0">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="counterclockwise">逆时针旋转角度：</label>
+                        <input type="number" id="counterclockwise" min="0" max="360" value="0">
+                    </div>
+
+                    <div class="rotation-order">
+                        <p>旋转顺序：</p>
+                        <div class="radio-group">
+                            <input type="radio" id="clockwise-only" name="rotation-order" value="clockwise-only" checked>
+                            <label for="clockwise-only">仅顺时针</label>
+
+                            <input type="radio" id="counterclockwise-only" name="rotation-order" value="counterclockwise-only">
+                            <label for="counterclockwise-only">仅逆时针</label>
+
+                            <input type="radio" id="clockwise-then-counter" name="rotation-order" value="clockwise-then-counter">
+                            <label for="clockwise-then-counter">先顺后逆</label>
+
+                            <input type="radio" id="counter-then-clockwise" name="rotation-order" value="counter-then-clockwise">
+                            <label for="counter-then-clockwise">先逆后顺</label>
+                        </div>
+                        
+                        <div class="button-group">
+                            <button id="rotate-btn" class="primary-btn">开始旋转</button>
+                            <button id="reset-btn" class="secondary-btn">重置</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="canvas-container">
+                <canvas id="graphCanvas"></canvas>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
